@@ -1,0 +1,15 @@
+version: '1'
+services:
+
+  postgres:
+    container_name: postgres-example
+    image: bitnami/postgresql:11
+    ports:
+      - 5432:5432
+    networks:
+      - bookin-net
+    environment:
+      - POSTGRESQL_PASSWORD=mysecretpassword
+
+networks:
+  bookin-net:

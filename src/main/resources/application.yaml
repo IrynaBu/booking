@@ -1,0 +1,33 @@
+spring:
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/postgres
+    user: postgres
+    password: mysecretpassword
+    locations: classpath:db/migration
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: mysecretpassword
+    driverClassName: org.postgresql.Driver
+management:
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+    logfile:
+      external-file: logs/booking.err.log
+    loggers:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,logfile,loggers,prometheus
